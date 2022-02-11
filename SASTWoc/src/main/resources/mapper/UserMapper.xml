@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.woc.mapper.UserMapper">
+
+    <!--示例-->
+
+
+    <insert id="addUser" parameterType="com.example.woc.entity.Account">
+        insert into woc.account (id,username,password,email,role) values (#{id},#{username},#{password},#{email},#{role})
+    </insert>
+
+    <select id="queryUserByUname" resultType="String">
+        select username from woc.account where username = #{username}
+    </select>
+
+    <select id="pword" resultType="String">
+        select password from woc.account where username = #{username}
+    </select>
+
+    <select id="findId" resultType="Integer">
+        select id from woc.account where id = #{id}
+    </select>
+
+    <select id="queryAByUname" resultType="com.example.woc.entity.Account">
+        select * from woc.account where username = #{username}
+    </select>
+</mapper>
