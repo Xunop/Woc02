@@ -41,7 +41,7 @@ public class ShiroRealm extends AuthorizingRealm {
         {
             return  null;//抛出UnknownAccountException用户名不存在的异常
         }
-        account.getUsername();
+        String Salt = account.getUsername();
         return new SimpleAuthenticationInfo(account,account.getPassword(),ByteSource.Util.bytes(Salt), "");
     }
 }
