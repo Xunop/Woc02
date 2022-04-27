@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.woc.mapper.AdminMapper">
+
+
+    <select id="queryId" resultType="com.example.woc.entity.Account">
+        select id from woc.account
+    </select>
+
+    <delete id="deleteByName" parameterType="com.example.woc.entity.Account">
+        delete  from woc.account where username = #{username}
+    </delete>
+
+    <update id="Authorization" parameterType="com.example.woc.entity.Account">
+        update woc.account
+        <set>
+            <if test="role != null">role=#{role},</if>
+        </set>
+        where username=#{username}
+    </update>
+
+
+
+</mapper>

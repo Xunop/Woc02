@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.woc.mapper.UserMapper">
+
+    <insert id="add" parameterType="com.example.woc.entity.Account">
+        insert into woc.account(username,password,email,role) values (#{username},#{password},#{email},0)
+    </insert>
+    <select id="queryByName" resultType="com.example.woc.entity.Account">
+        select * from woc.account WHERE username = #{username}
+    </select>
+</mapper>
